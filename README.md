@@ -1,5 +1,5 @@
 # Hello Emequeers
 
 * Gungor [X]
-* Furkan
+* Furkan [X]
 * Burcak
