@@ -2,4 +2,4 @@
 
 * Gungor [X]
 * Furkan [X]
-* Burcak
+* Burcak [X]
