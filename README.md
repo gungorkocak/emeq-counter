@@ -1,5 +1,7 @@
 # Getting Started
 
+## For macOS
+
 First clone this project to your machine.
 
 ```sh
@@ -74,5 +76,9 @@ gradle bootRun
 or
 ```sh
 ./gradlew bootRun
-```
+``**
 </details>
+
+## For Windows
+
+**TBD***
