@@ -47,7 +47,7 @@ jenv add $(/usr/libexec/java_home)
 ```
 </details>
 <details>
-<summary>Install SpringBoot</summary>
+<summary>3.a. Install SpringBoot (Optional)</summary>
 
 Install Spring via homebrew
 
