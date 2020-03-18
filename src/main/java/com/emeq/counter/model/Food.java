@@ -1,0 +1,29 @@
+package com.emeq.counter.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+import com.emeq.counter.dto.FoodDTO;
+
+import org.springframework.beans.BeanUtils;
+
+import lombok.Data;
+
+@Data
+@Entity(name = "foods")
+public class Food {
+  @Id
+  @GeneratedValue
+  private Long id;
+
+  @NotBlank
+  private String name;
+
+  public static FoodDTO convertToDTO(final Food food) {
+    final FoodDTO foodDTO = new FoodDTO();
+    BeanUtils.copyProperties(food, foodDTO);
+    return foodDTO;
+  }
+}
