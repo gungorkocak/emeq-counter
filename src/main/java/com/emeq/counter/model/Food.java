@@ -21,7 +21,7 @@ public class Food {
   @NotBlank
   private String name;
 
-  public static FoodDTO convertToDTO(final Food food) {
+  public static FoodDTO convert2DTO(final Food food) {
     final FoodDTO foodDTO = new FoodDTO();
     BeanUtils.copyProperties(food, foodDTO);
     return foodDTO;

@@ -26,7 +26,7 @@ public class FoodService {
   public ResponseEntity<List<FoodDTO>> index() {
     Iterable<Food> foods = foodRepository.findAll();
 
-    List<FoodDTO> result = StreamSupport.stream(foods.spliterator(), false).map(Food::convertToDTO)
+    List<FoodDTO> result = StreamSupport.stream(foods.spliterator(), false).map(Food::convert2DTO)
         .collect(Collectors.toList());
 
     return ResponseEntity.ok(result);
@@ -35,13 +35,13 @@ public class FoodService {
   public ResponseEntity<FoodDTO> show(final Long id) {
     Food food = foodRepository.findById(id).orElseThrow(() -> new RecordNotFoundException(EXCEPTION_STRING + id));
 
-    return ResponseEntity.ok(Food.convertToDTO(food));
+    return ResponseEntity.ok(Food.convert2DTO(food));
   }
 
   public ResponseEntity<FoodDTO> create(final FoodDTO foodDTO) {
     final Food food = new Food();
     food.setName(foodDTO.getName());
-    FoodDTO result = Food.convertToDTO(foodRepository.save(food));
+    FoodDTO result = Food.convert2DTO(foodRepository.save(food));
 
 		URI location = URI.create("http://localhost:3000/foods/" + result.getId());
 
@@ -55,7 +55,7 @@ public class FoodService {
     final Food food = new Food();
     food.setId(id);
     food.setName(foodDTO.getName());
-    Food.convertToDTO(foodRepository.save(food));
+    Food.convert2DTO(foodRepository.save(food));
 
     return ResponseEntity.ok(new MessageDTO("Food updated succesfully"));
   }
