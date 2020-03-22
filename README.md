@@ -82,3 +82,11 @@ or
 ## For Windows
 
 **TBD***
+
+# Running Test
+
+You can run test via gradle.
+
+```
+gradle test
+```
