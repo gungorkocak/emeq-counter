@@ -9,5 +9,4 @@ class EmeqCounterApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

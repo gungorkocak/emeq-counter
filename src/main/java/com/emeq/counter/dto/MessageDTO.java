@@ -9,17 +9,16 @@ import lombok.Setter;
 @Setter
 public class MessageDTO implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  private String message;
+    private String message;
 
-  public MessageDTO() {
+    public MessageDTO() {
 
-  }
+    }
 
-  public MessageDTO(String message) {
-    super();
-    setMessage(message);
-  }
-
+    public MessageDTO(String message) {
+        super();
+        setMessage(message);
+    }
 }

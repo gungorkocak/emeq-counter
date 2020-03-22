@@ -14,16 +14,16 @@ import lombok.Data;
 @Data
 @Entity(name = "foods")
 public class Food {
-  @Id
-  @GeneratedValue
-  private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-  @NotBlank
-  private String name;
+    @NotBlank
+    private String name;
 
-  public static FoodDTO convert2DTO(final Food food) {
-    final FoodDTO foodDTO = new FoodDTO();
-    BeanUtils.copyProperties(food, foodDTO);
-    return foodDTO;
-  }
+    public static FoodDTO convert2DTO(final Food food) {
+        final FoodDTO foodDTO = new FoodDTO();
+        BeanUtils.copyProperties(food, foodDTO);
+        return foodDTO;
+    }
 }

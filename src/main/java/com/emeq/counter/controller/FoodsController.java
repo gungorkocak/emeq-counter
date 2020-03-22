@@ -21,31 +21,31 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/foods")
 public class FoodsController {
 
-  @Autowired
-  private FoodService foodService;
+    @Autowired
+    private FoodService foodService;
 
-  @GetMapping(produces = "application/json")
-  public ResponseEntity<List<FoodDTO>> index() {
-    return foodService.index();
-  }
+    @GetMapping(produces = "application/json")
+    public ResponseEntity<List<FoodDTO>> index() {
+        return foodService.index();
+    }
 
-  @GetMapping(path = "/{id}", produces = "application/json")
-  public ResponseEntity<FoodDTO> show(@PathVariable final Long id) {
-    return foodService.show(id);
-  }
+    @GetMapping(path = "/{id}", produces = "application/json")
+    public ResponseEntity<FoodDTO> show(@PathVariable final Long id) {
+        return foodService.show(id);
+    }
 
-  @PostMapping(produces = "application/json", consumes = "application/json")
-  public ResponseEntity<FoodDTO> create(@RequestBody final FoodDTO foodDTO) {
-    return foodService.create(foodDTO);
-  }
+    @PostMapping(produces = "application/json", consumes = "application/json")
+    public ResponseEntity<FoodDTO> create(@RequestBody final FoodDTO foodDTO) {
+        return foodService.create(foodDTO);
+    }
 
-  @PutMapping(path = "/{id}", produces = "application/json", consumes = "application/json")
-  public ResponseEntity<MessageDTO> update(@PathVariable final Long id, @RequestBody final FoodDTO foodDTO) {
-    return foodService.update(id, foodDTO);
-  }
+    @PutMapping(path = "/{id}", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<MessageDTO> update(@PathVariable final Long id, @RequestBody final FoodDTO foodDTO) {
+        return foodService.update(id, foodDTO);
+    }
 
-  @DeleteMapping(path = "/{id}", produces = "application/json", consumes = "application/json")
-  public ResponseEntity<MessageDTO> destroy(@PathVariable final Long id) {
-    return foodService.destroy(id);
-  }
+    @DeleteMapping(path = "/{id}", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<MessageDTO> destroy(@PathVariable final Long id) {
+        return foodService.destroy(id);
+    }
 }

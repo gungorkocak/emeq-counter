@@ -12,10 +12,10 @@ import lombok.Setter;
 @Setter
 public class FoodDTO implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  @JsonInclude(Include.NON_NULL)
-  private Long id;
+    @JsonInclude(Include.NON_NULL)
+    private Long id;
 
-  private String name;
+    private String name;
 }
