@@ -81,4 +81,43 @@ or
 
 ## For Windows
 
-**TBD***
+First clone this project to your machine.
+git clone git@github.com:gungorkocak/emeq-counter.git && cd emeq-counter
+
+If you want to run this project in your local settings, you need to follow the steps shown below. After installation, you can run the project on your computer.
+
+### 1. Create Database and userYou need to create database and user in Postgresql.
+
+  Login at Postgresql with `psql`. Than follow that steps.create user emeq;
+
+  ```
+  alter user emeq with encrypted password 'password';
+  create database emeqdb;
+  grant ALL privileges on database emeqDB to emeq;
+  ```
+
+### 2. Install Java
+
+Download Java SE Development Kit 13
+Search for Environment Variables then select Edit the system environment variables
+Click the Environment Variables button.
+Under System Variables, click New.
+In the Variable Name field, enter either:
+`JAVA_HOME` if you installed the JDK (Java Development Kit)
+
+or
+
+`JRE_HOME` if you installed the JRE (Java Runtime Environment) 
+In the Variable Value field, enter your JDK or JRE installation path .
+
+OR 
+
+configure project build path 
+
+Java Build Path --> JRE System Library[jdk-13.0.2]
+
+### 3. Install Gradle
+Install gradle latest version and run it.
+https://gradle.org/install/
+
+### 4. Now import the project into your workspace and run the project on you IDE.
