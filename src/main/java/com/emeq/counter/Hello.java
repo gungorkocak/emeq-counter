@@ -7,7 +7,7 @@ public class Hello {
     @JsonProperty("hello")
     private final String content = "world";
 
-	  public String getContent() {
+    public String getContent() {
         return content;
-	  }
+    }
 }
