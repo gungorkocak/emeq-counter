@@ -6,12 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
-	
-	private static final String template = "Hello, %s!";
 
 	@GetMapping("/hello")
-	public Hello hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return new Hello(String.format(template, name));
+	public Hello hello() {
+      return new Hello();
 	}
-//    http://localhost:4000/hello?name=emek
 }

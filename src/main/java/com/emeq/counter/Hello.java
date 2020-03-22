@@ -1,15 +1,13 @@
 package com.emeq.counter;
 
-public class Hello {
-	
-	private final String content;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-	public Hello(String content) {
-		this.content = content;
-	}
+public class Hello {
+
+  @JsonProperty("hello")
+	private final String content = "world";
 
 	public String getContent() {
 		return content;
 	}
-	
 }
