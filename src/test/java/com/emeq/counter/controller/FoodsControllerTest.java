@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import com.emeq.counter.dto.FoodDTO;
-import com.emeq.counter.dto.MessageDTO;
 import com.emeq.counter.exception.RecordNotFoundException;
 import com.emeq.counter.model.Food;
 import com.emeq.counter.repository.FoodRepository;
@@ -112,8 +111,8 @@ class FoodsControllerTest {
         RequestEntity<FoodDTO> request = RequestEntity.put(new URI(endpoint("/foods/" + updatedFood.getId())))
                 .headers(valid_content_type()).body(foodDTO);
 
-        ResponseEntity<MessageDTO> responseNotFound = this.restTemplate.exchange(request, MessageDTO.class);
-        ResponseEntity<MessageDTO> responseSuccess = this.restTemplate.exchange(request, MessageDTO.class);
+        ResponseEntity<FoodDTO> responseNotFound = this.restTemplate.exchange(request, FoodDTO.class);
+        ResponseEntity<FoodDTO> responseSuccess = this.restTemplate.exchange(request, FoodDTO.class);
 
         assertThat(responseNotFound.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
         assertThat(responseSuccess.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -129,10 +128,10 @@ class FoodsControllerTest {
         RequestEntity<Void> request = RequestEntity.delete(new URI(endpoint("/foods/" + food.getId())))
                 .headers(valid_content_type()).build();
 
-        ResponseEntity<MessageDTO> responseSuccess = this.restTemplate.exchange(request, MessageDTO.class);
-        ResponseEntity<MessageDTO> responseNotFound = this.restTemplate.exchange(request, MessageDTO.class);
+        ResponseEntity<Object> responseSuccess = this.restTemplate.exchange(request, Object.class);
+        ResponseEntity<Object> responseNotFound = this.restTemplate.exchange(request, Object.class);
 
-        assertThat(responseSuccess.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseSuccess.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
         assertThat(responseNotFound.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 

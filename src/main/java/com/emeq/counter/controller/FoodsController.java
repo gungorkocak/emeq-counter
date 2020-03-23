@@ -3,7 +3,6 @@ package com.emeq.counter.controller;
 import java.util.List;
 
 import com.emeq.counter.dto.FoodDTO;
-import com.emeq.counter.dto.MessageDTO;
 import com.emeq.counter.service.FoodService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +39,12 @@ public class FoodsController {
     }
 
     @PutMapping(path = "/{id}", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<MessageDTO> update(@PathVariable final Long id, @RequestBody final FoodDTO foodDTO) {
+    public ResponseEntity<FoodDTO> update(@PathVariable final Long id, @RequestBody final FoodDTO foodDTO) {
         return foodService.update(id, foodDTO);
     }
 
     @DeleteMapping(path = "/{id}", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<MessageDTO> destroy(@PathVariable final Long id) {
+    public ResponseEntity<Object> destroy(@PathVariable final Long id) {
         return foodService.destroy(id);
     }
 }

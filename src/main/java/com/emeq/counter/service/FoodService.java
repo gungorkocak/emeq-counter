@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import com.emeq.counter.dto.FoodDTO;
-import com.emeq.counter.dto.MessageDTO;
 import com.emeq.counter.exception.RecordNotFoundException;
 import com.emeq.counter.model.Food;
 import com.emeq.counter.repository.FoodRepository;
@@ -48,24 +47,24 @@ public class FoodService {
         return ResponseEntity.created(location).body(result);
     }
 
-    public ResponseEntity<MessageDTO> update(final Long id, final FoodDTO foodDTO) {
+    public ResponseEntity<FoodDTO> update(final Long id, final FoodDTO foodDTO) {
         if (!foodRepository.existsById(id))
             throw new RecordNotFoundException(EXCEPTION_STRING + id);
 
         final Food food = new Food();
         food.setId(id);
         food.setName(foodDTO.getName());
-        Food.convert2DTO(foodRepository.save(food));
+        FoodDTO result = Food.convert2DTO(foodRepository.save(food));
 
-        return ResponseEntity.ok(new MessageDTO("Food updated succesfully"));
+        return ResponseEntity.ok(result);
     }
 
-    public ResponseEntity<MessageDTO> destroy(final Long id) {
+    public ResponseEntity<Object> destroy(final Long id) {
         if (!foodRepository.existsById(id))
             throw new RecordNotFoundException(EXCEPTION_STRING + id);
 
         foodRepository.deleteById(id);
 
-        return ResponseEntity.ok(new MessageDTO("Food deleted succesfully"));
+        return ResponseEntity.noContent().build();
     }
 }
