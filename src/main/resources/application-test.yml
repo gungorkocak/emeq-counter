@@ -1,0 +1,8 @@
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:postgresql://localhost:5432/emeqdb-test
+    hibernate:
+      ddl-auto: create-drop
+  devtools:
+    add-properties: true

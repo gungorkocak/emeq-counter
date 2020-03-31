@@ -1,7 +1,14 @@
 server:
   port: 4000
+  host: localhost
+
+api:
+  base:
+    url: http://${server.host}:${server.port}
 
 spring:
+  profiles:
+    active: dev
   datasource:
     url: jdbc:postgresql://localhost:5432/emeqdb
     username: emeq
@@ -15,12 +22,3 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
-  devtools:
-    add-properties: true
-
-logging:
-  level:
-    org:
-      springframework:
-        web: DEBUG
-      hibernate: ERROR

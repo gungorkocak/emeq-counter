@@ -1,0 +1,11 @@
+spring:
+  profiles: dev
+  devtools:
+    add-properties: true
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+      hibernate: ERROR
