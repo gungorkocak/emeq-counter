@@ -14,13 +14,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import com.emeq.counter.dto.FoodDTO;
-import com.emeq.counter.exception.RecordNotFoundException;
-import com.emeq.counter.model.Food;
-import com.emeq.counter.repository.FoodRepository;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,6 +26,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+
+import com.emeq.counter.dto.FoodDTO;
+import com.emeq.counter.exception.RecordNotFoundException;
+import com.emeq.counter.model.Food;
+import com.emeq.counter.repository.FoodRepository;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class FoodsControllerTest {
@@ -82,7 +82,7 @@ class FoodsControllerTest {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         assertThat(mapper.convertValue(response.getBody(), JsonNode.class))
-                .isEqualTo(mapper.convertValue(Food.convert2DTO(food), JsonNode.class));
+            .isEqualTo(mapper.convertValue(Food.convert2DTO(food), JsonNode.class));
     }
 
     @Test
@@ -96,8 +96,7 @@ class FoodsControllerTest {
 
         assertThat(response.getHeaders().getLocation().getPath()).isEqualTo("/foods/" + savedFood.getId());
 
-        assertThat(mapper.convertValue(response.getBody(), JsonNode.class))
-                .isEqualTo(mapper.convertValue(foodDTO, JsonNode.class));
+        assertThat(mapper.convertValue(response.getBody(), JsonNode.class)).isEqualTo(mapper.convertValue(foodDTO, JsonNode.class));
     }
 
     @Test

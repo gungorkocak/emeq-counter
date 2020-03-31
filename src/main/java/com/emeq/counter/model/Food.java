@@ -5,9 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-import com.emeq.counter.dto.FoodDTO;
-
 import org.springframework.beans.BeanUtils;
+
+import com.emeq.counter.dto.FoodDTO;
 
 import lombok.Data;
 

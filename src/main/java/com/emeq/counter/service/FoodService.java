@@ -5,15 +5,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import com.emeq.counter.dto.FoodDTO;
-import com.emeq.counter.exception.RecordNotFoundException;
-import com.emeq.counter.model.Food;
-import com.emeq.counter.repository.FoodRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import com.emeq.counter.dto.FoodDTO;
+import com.emeq.counter.exception.RecordNotFoundException;
+import com.emeq.counter.model.Food;
+import com.emeq.counter.repository.FoodRepository;
 
 @Service
 public class FoodService {
