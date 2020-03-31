@@ -11,11 +11,15 @@ import com.emeq.counter.model.Food;
 import com.emeq.counter.repository.FoodRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
 public class FoodService {
+
+    @Value("${api.base.url}")
+    private String apiBaseUrl;
 
     @Autowired
     private FoodRepository foodRepository;
@@ -42,7 +46,7 @@ public class FoodService {
         food.setName(foodDTO.getName());
         FoodDTO result = Food.convert2DTO(foodRepository.save(food));
 
-        URI location = URI.create("http://localhost:3000/foods/" + result.getId());
+        URI location = URI.create(apiBaseUrl + "/foods/" + result.getId());
 
         return ResponseEntity.created(location).body(result);
     }
