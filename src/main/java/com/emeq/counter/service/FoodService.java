@@ -29,14 +29,18 @@ public class FoodService {
     public ResponseEntity<List<FoodDTO>> index() {
         Iterable<Food> foods = foodRepository.findAll();
 
-        List<FoodDTO> result = StreamSupport.stream(foods.spliterator(), false).map(Food::convert2DTO)
+        List<FoodDTO> result = StreamSupport
+                .stream(foods.spliterator(), false)
+                .map(Food::convert2DTO)
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(result);
     }
 
     public ResponseEntity<FoodDTO> show(final Long id) {
-        Food food = foodRepository.findById(id).orElseThrow(() -> new RecordNotFoundException(EXCEPTION_STRING + id));
+        Food food = foodRepository
+                .findById(id)
+                .orElseThrow(() -> new RecordNotFoundException(EXCEPTION_STRING + id));
 
         return ResponseEntity.ok(Food.convert2DTO(food));
     }
