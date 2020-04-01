@@ -7,9 +7,9 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.beans.BeanUtils;
 
-import com.emeq.counter.dto.FoodDTO;
-
 import lombok.Data;
+
+import com.emeq.counter.dto.FoodDTO;
 
 @Data
 @Entity(name = "foods")
@@ -21,9 +21,9 @@ public class Food {
     @NotBlank
     private String name;
 
-    public static FoodDTO convert2DTO(final Food food) {
+    public FoodDTO toDTO() {
         final FoodDTO foodDTO = new FoodDTO();
-        BeanUtils.copyProperties(food, foodDTO);
+        BeanUtils.copyProperties(this, foodDTO);
         return foodDTO;
     }
 }
