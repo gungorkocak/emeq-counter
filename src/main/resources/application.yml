@@ -1,10 +1,11 @@
 server:
   port: 4000
   host: localhost
+  schema: http
 
 api:
   base:
-    url: http://${server.host}:${server.port}
+    url: ${server.schema}://${server.host}:${server.port}
 
 spring:
   profiles:
