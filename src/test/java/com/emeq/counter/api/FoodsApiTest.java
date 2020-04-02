@@ -87,7 +87,7 @@ class FoodsApiTest {
         ((ObjectNode) json).put("id", 7);
         ((ObjectNode) json).put("name", "Banana");
 
-        ResponseEntity<JsonNode> response = this.restTemplate.postForEntity(endpoint("/foods"), json, JsonNode.class);
+        ResponseEntity<JsonNode> response = this.restTemplate.postForEntity(endpoint("/foods"), request, JsonNode.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         assertThat(response.getHeaders().getLocation().getPath()).isEqualTo("/foods/7");
