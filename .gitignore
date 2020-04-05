@@ -43,3 +43,22 @@ local.properties
 
 ### VS Code ###
 .vscode/
+
+# NPM
+node_modules
+frontend/node_modules
+frontend/.cache
+frontend/dist/**
+frontend/elm-stuff
+
+# Gradle Build Files
+
+backend/build.txt
+backend/install.txt
+backend/test.txt
+build.txt
+frontend/build.txt
+frontend/install.txt
+frontend/test.txt
+install.txt
+test.txt
