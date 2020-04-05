@@ -82,3 +82,22 @@ or
 ## For Windows
 
 **TBD***
+
+# Running Test
+
+Before running test units you need to create test db as `emeqdb_test`. You can create new database like this;
+
+```sql
+create database emeqdb_test;
+grant ALL privileges on database emeqdb_test to emeq;
+```
+
+You can run test via gradle.
+
+```sh
+gradle test
+```
+or
+```sh
+gradle clean test
+```

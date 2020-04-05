@@ -1,0 +1,14 @@
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:postgresql://localhost:5432/emeqdb_test
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+      hibernate: DEBUG
