@@ -26,6 +26,9 @@ clean {
     delete 'dist'
 }
 
-check.dependsOn(frontend_test)
+// We are not running a test suite on frontend at the moment.
+// Feel free to re-enable it after we have a runnable test suite.
+// check.dependsOn(frontend_test)
+
 assemble.dependsOn(frontend_install)
 assemble.dependsOn(frontend_build)
