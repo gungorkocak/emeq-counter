@@ -17,6 +17,7 @@ import org.springframework.dao.NonTransientDataAccessException;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.TransactionSystemException;
 
 import com.emeq.counter.model.User;
 
@@ -66,6 +67,17 @@ public class UserRepositoryTest {
         user.setEncryptedPassword("bad-password");
 
         assertThrows(NonTransientDataAccessException.class, () -> {
+            userRepository.save(user);
+        });
+    }
+
+    @Test
+    public void emailShouldBeCorrectFormat() {
+        final User user = new User();
+        user.setEmail("its_not_email.com");
+        user.setEncryptedPassword("bad-password");
+
+        assertThrows(TransactionSystemException.class, () -> {
             userRepository.save(user);
         });
     }

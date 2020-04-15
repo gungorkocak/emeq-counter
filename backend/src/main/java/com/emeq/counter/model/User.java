@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
@@ -21,6 +22,7 @@ public class User {
     private Long id;
 
     @NotBlank
+    @Email
     private String email;
 
     @NotBlank
