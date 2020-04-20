@@ -141,13 +141,15 @@ and it copies contents of the `frontend/dist` folder to `backend/assets` directo
 
 First open Eclipse Project Explorer to import this project and clone to your machine.
 
-Project Explorer -> Import ->Projects from Git -> Clone URI
+#### 1. Import the project into your workspace by using Eclipse IDE
+
+Project Explorer --> Import --> Projects from Git --> Clone URI
 
  git@github.com:gungorkocak/emeq-counter.git
 
 If you want to run this project in your local settings, you need to follow the steps shown below. After installation, you can run the project on your computer.
 
-#### 1. Create Database and userYou need to create database and user in Postgresql.
+#### 2. Create Database and userYou need to create database and user in Postgresql.
 
   Login at Postgresql with `psql`. Than follow that steps.create user emeq;
 
@@ -157,7 +159,7 @@ If you want to run this project in your local settings, you need to follow the s
   grant ALL privileges on database emeqDB to emeq;
   ```
 
-#### 2. Install Java
+#### 3. Install Java
 
 Download Java SE Development Kit 13
 Search for Environment Variables then select Edit the system environment variables
@@ -177,12 +179,28 @@ configure project build path
 
 Java Build Path --> JRE System Library[jdk-13.0.2]
 
-#### 3. Install Gradle
+#### 4. Install Gradle
+
 Install gradle latest version and run it.
 https://gradle.org/install/
 
-#### 4. Now import the project into your workspace and run the project on you IDE.
+#### 5. Install Project Lombok
 
+Download latest version of lombok.jar from 
+
+```sh
+https://projectlombok.org/download
+```
+
+Right click backend --> Build Path --> Configure Build Path
+
+Open Libraries tab --> classpath 
+
+Select Add External JARs and add lombok.jar
+
+#### 6. Run the project on you IDE.
+
+Run EmeqCounterApplication.java file
 
 ## Running Tests
 
