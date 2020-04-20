@@ -139,8 +139,11 @@ and it copies contents of the `frontend/dist` folder to `backend/assets` directo
 
 ### Backend Project
 
-First clone this project to your machine.
-git clone git@github.com:gungorkocak/emeq-counter.git && cd emeq-counter
+First open Eclipse Project Explorer to import this project and clone to your machine.
+
+Project Explorer -> Import ->Projects from Git -> Clone URI
+
+ git@github.com:gungorkocak/emeq-counter.git
 
 If you want to run this project in your local settings, you need to follow the steps shown below. After installation, you can run the project on your computer.
 
