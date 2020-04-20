@@ -1,0 +1,34 @@
+apply plugin: 'base'
+
+task frontend_install(type: Exec) {
+    commandLine "npm", 'install'
+    standardOutput = new FileOutputStream("./install.txt")
+}
+
+task frontend_start(type: Exec) {
+    inputs.file("package-lock.json").withPathSensitivity(PathSensitivity.RELATIVE)
+    commandLine "npm", 'start'
+}
+
+task frontend_test(type: Exec) {
+    commandLine "npm", 'test'
+    standardOutput = new FileOutputStream("./test.txt")
+}
+
+task frontend_build(type: Exec) {
+    inputs.file("package-lock.json").withPathSensitivity(PathSensitivity.RELATIVE)
+    outputs.cacheIf { true }
+    commandLine "npm", 'run', 'build'
+    standardOutput = new FileOutputStream("./build.txt")
+}
+
+clean {
+    delete 'dist'
+}
+
+// We are not running a test suite on frontend at the moment.
+// Feel free to re-enable it after we have a runnable test suite.
+// check.dependsOn(frontend_test)
+
+assemble.dependsOn(frontend_install)
+assemble.dependsOn(frontend_build)
