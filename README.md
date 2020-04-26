@@ -22,9 +22,9 @@ git clone git@github.com:gungorkocak/emeq-counter.git && cd emeq-counter
 
 If you want to run this project in your local settings, you need to follow the steps shown below. After installation, you can run the project on your computer.
 
-#### Create Database and user
+#### 1. Create Database and user
+You need to create database and user in Postgresql. Login at Postgresql with `psql`. Than follow these steps.
 
-You need to create database and user in Postgresql. Login at Postgresql with `psql`. Then follow these steps.
 
 ```sql
 create user emeq;
@@ -59,6 +59,7 @@ Then add Java to jenv for recognize it.
 jenv add $(/usr/libexec/java_home)
 ```
 
+
 #### 3.pre Install SpringBoot (Optional)
 
 Install Spring via homebrew
@@ -75,8 +76,7 @@ Install Gradle and Gradle completion via homebrew:
 brew install gradle gradle-completion
 ```
 
-For more visit [gradle-completion]https://github.com/gradle/gradle-completion repo on Github.
-You need to make your configurations for `bash` or `zsh`.
+For more visit [gradle-completion](https://github.com/gradle/gradle-completion) repo on Github. You need to make your configurations for `bash` or `zsh`.
 
 
 #### 4. Finally run the project with...
@@ -137,8 +137,70 @@ and it copies contents of the `frontend/dist` folder to `backend/assets` directo
 
 ## Setting it up for Windows
 
-**TBD***
+### Backend Project
 
+First open Eclipse Project Explorer to import this project and clone to your machine.
+
+#### 1. Import the project into your workspace by using Eclipse IDE
+
+Project Explorer --> Import --> Projects from Git --> Clone URI
+
+ git@github.com:gungorkocak/emeq-counter.git
+
+If you want to run this project in your local settings, you need to follow the steps shown below. After installation, you can run the project on your computer.
+
+#### 2. Create Database and userYou need to create database and user in Postgresql.
+
+  Login at Postgresql with `psql`. Than follow that steps.create user emeq;
+
+  ```
+  alter user emeq with encrypted password 'password';
+  create database emeqdb;
+  grant ALL privileges on database emeqDB to emeq;
+  ```
+
+#### 3. Install Java
+
+Download Java SE Development Kit 13
+Search for Environment Variables then select Edit the system environment variables
+Click the Environment Variables button.
+Under System Variables, click New.
+In the Variable Name field, enter either:
+`JAVA_HOME` if you installed the JDK (Java Development Kit)
+
+or
+
+`JRE_HOME` if you installed the JRE (Java Runtime Environment)
+In the Variable Value field, enter your JDK or JRE installation path .
+
+OR
+
+configure project build path
+
+Java Build Path --> JRE System Library[jdk-13.0.2]
+
+#### 4. Install Gradle
+
+Install gradle latest version and run it.
+https://gradle.org/install/
+
+#### 5. Install Project Lombok
+
+Download latest version of lombok.jar from 
+
+```sh
+https://projectlombok.org/download
+```
+
+Right click backend --> Build Path --> Configure Build Path
+
+Open Libraries tab --> classpath 
+
+Select Add External JARs and add lombok.jar
+
+#### 6. Run the project on you IDE.
+
+Run EmeqCounterApplication.java file
 
 ## Running Tests
 
